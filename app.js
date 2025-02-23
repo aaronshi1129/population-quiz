@@ -184,16 +184,17 @@ class PopulationQuiz {
     }
   }
 
-function formatPopulation(population) {
-  if (population >= 1e9) {
-    // Convert to billions and round to two decimal places
-    const billionsPopulation = (population / 1e9).toFixed(2);
-    return `${billionsPopulation} billion people`;
+formatPopulation(population) {
+  if (population >= 1000000000) {
+    // For numbers >= 1 billion
+    const billions = population / 1000000000;
+    return `${billions.toFixed(2)} billion people`;
   } else {
-    // Convert to millions and round to two decimal places
-    const millionsPopulation = (population / 1e6).toFixed(2);
-    return `${millionsPopulation} million people`;
+    // For numbers < 1 billion
+    const millions = population / 1000000;
+    return `${millions.toFixed(2)} million people`;
   }
+}
 
   renderCountryOptions() {
     this.countryOptionsEl.innerHTML = '';
