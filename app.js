@@ -184,9 +184,14 @@ class PopulationQuiz {
     }
   }
 
-  formatPopulation(population) {
-    // Round to millions for simplicity
-    const millionsPopulation = Math.round(population / 1000000);
+function formatPopulation(population) {
+  if (population >= 1e9) {
+    // Convert to billions and round to two decimal places
+    const billionsPopulation = (population / 1e9).toFixed(2);
+    return `${billionsPopulation} billion people`;
+  } else {
+    // Convert to millions and round to two decimal places
+    const millionsPopulation = (population / 1e6).toFixed(2);
     return `${millionsPopulation} million people`;
   }
 
