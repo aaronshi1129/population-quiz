@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-page" class="container start-page">
+        <h1>Population Challenge</h1>
+        <div class="instructions">
+            <h2>How to Play</h2>
+            <ul>
+                <li>Order 3 countries/regions from the MOST to LEAST populated</li>
+                <li>Click countries/regions in the correct population order</li>
+                <li>Get points for correct answers</li>
+                <li>Complete 10 rounds in the fastest time possible</li>
+            </ul>
+            <button id="start-btn">Start</button>
+        </div>
+    </div>
+
+    <div id="quiz-page" class="container quiz-page" style="display: none;">
+        <div class="quiz-header">
+            <div class="quiz-stats">
+                <span>Round: <span id="current-round">1</span>/10</span>
+                <span>Score: <span id="current-score">0</span></span>
+                <span>Time: <span id="timer">00:00</span></span>
+            </div>
+        </div>
+
+        <h1>Population Challenge</h1>
+        <div id="question-container">
+            <p>Tap countries/regions to order from the MOST to LEAST populated:</p>
+            <div id="country-options" class="country-grid"></div>
+        </div>
+        <div id="current-order" class="order-display">
+            Tap countries/regions to order from most to least populated, tap again to remove
+        </div>
+        <button id="check-answer">Check Order</button>
+        <button id="next-round">Next Round</button>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-message"></div>
+            <div id="modal-population-details"></div>
+            <button id="modal-close-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Final Results Modal -->
+    <div id="final-results-modal" class="modal">
+        <div class="modal-content">
+            <h2>Challenge Completed!</h2>
+            <div id="final-score-details">
+                <p>Total Score: <span id="final-score">0</span></p>
+                <p>Time Taken: <span id="final-time">00:00</span></p>
+            </div>
+            <button id="restart-btn">Play Again</button>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        Author: Aaron Shi. Released in 2025. Population data was retrieved from Worldometer in February 2025.
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
