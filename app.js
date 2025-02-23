@@ -92,7 +92,7 @@ class PopulationQuiz {
     // Reset round state
     this.selectedCountries = [];
     this.correctOrder = [];
-    this.currentOrderEl.textContent = 'Tap countries to order from most to least populated';
+    this.currentOrderEl.textContent = 'Tap countries/regions to order from most to least populated';
 
     // Get new country data
     const countries = await getCountryData(3);
@@ -115,7 +115,7 @@ class PopulationQuiz {
 
   updateOrderDisplay() {
     if (this.selectedCountries.length === 0) {
-      this.currentOrderEl.textContent = 'Tap countries to order from most to least populated, tap again to remove';
+      this.currentOrderEl.textContent = 'Tap countries/regions to order from most to least populated, tap again to remove';
     } else {
       this.currentOrderEl.innerHTML = this.selectedCountries
           .map(country => `<span data-name="${country.name}">${country.name}<br><small>${country.chineseName}</small></span>`)
@@ -145,13 +145,13 @@ class PopulationQuiz {
     this.resultsModal.style.display = 'flex';
     
     if (isCorrect) {
-      this.modalTitle.textContent = 'Correct!';
+      this.modalTitle.textContent = '👍Correct!🎉';
       this.modalTitle.style.color = 'var(--success-color)';
-      this.modalMessage.textContent = 'Great job ordering the countries by population!';
+      this.modalMessage.textContent = 'Great job ordering the countries by population!🎊';
     } else {
-      this.modalTitle.textContent = 'Incorrect';
+      this.modalTitle.textContent = '😔Incorrect😰';
       this.modalTitle.style.color = 'var(--error-color)';
-      this.modalMessage.textContent = customMessage || 'The countries were not in the correct order.';
+      this.modalMessage.textContent = customMessage || 'The countries were not in the correct order.😟';
     }
 
     this.modalPopulationDetails.innerHTML = this.correctOrder.map((country, index) => 
